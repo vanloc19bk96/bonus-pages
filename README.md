@@ -20,11 +20,27 @@ bonus-page/
 3. Keep every link to the page's own files relative (`img/...`, `style.css`), so the folder works anywhere.
 4. Set the absolute `og:image` URL once the domain is known.
 
-## Deploy (Cloudflare Pages)
+## Deploy (Cloudflare Workers, https://bonuspage.fastaifactory.com)
+
+The repo root is the site: `bonuspage.fastaifactory.com/<product>/` serves `<product>/index.html`.
+
+| File | What it does |
+| --- | --- |
+| `wrangler.jsonc` | Worker `bonus-pages`, custom domain `bonuspage.fastaifactory.com`, 404 page, trailing-slash URLs |
+| `worker.js` | Only videos run through it: answers Range requests with 206 so Safari/iPhone can play them |
+| `.assetsignore` | Keeps repo files (README, worker, config, `.git`) off the site |
+| `404.html` | Shown for unknown paths and the bare domain |
+| `.github/workflows/deploy.yml` | Deploys on every push to `main` |
+
+**Automatic:** every push to `main` deploys, once the repo has two secrets (GitHub → Settings → Secrets and
+variables → Actions): `CLOUDFLARE_API_TOKEN` (template "Edit Cloudflare Workers", zone `fastaifactory.com`) and
+`CLOUDFLARE_ACCOUNT_ID`. The same values as the `sale-pages` repo work.
+
+**Manual, from this computer:**
 
 ```sh
-cd d:/Affiliate
-npx wrangler pages deploy bonus-page --project-name <project-name>
+cd d:/Affiliate/bonus-page
+npx wrangler deploy        # wrangler 4.x; `npx wrangler login` once
 ```
 
 Each file must stay under Cloudflare's 25 MiB limit (the NAZO BOX video is about 11 MB).

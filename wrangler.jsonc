@@ -1,0 +1,23 @@
+// Cloudflare Worker for the affiliate bonus pages: https://bonuspage.fastaifactory.com/<product>/
+// The repo root is the assets folder (one folder per product); .assetsignore keeps the repo files out.
+{
+  "name": "bonus-pages",
+  "main": "./worker.js",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": false,
+  "preview_urls": false,
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    // /nazo-box → /nazo-box/ and /nazo-box/index.html → /nazo-box/
+    "html_handling": "auto-trailing-slash",
+    // unknown paths (and the bare domain) get 404.html with a real 404 status
+    "not_found_handling": "404-page",
+    // videos go through worker.js so Safari gets byte ranges (206)
+    "run_worker_first": ["/*.mp4", "/*.m4v", "/*.webm", "/*.mov"]
+  },
+  "routes": [
+    { "pattern": "bonuspage.fastaifactory.com", "custom_domain": true }
+  ],
+  "observability": { "enabled": true }
+}
