@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="NAZO BOX bonus">
+  <!-- A tiny solved nonogram: the same magnifying glass the hero grid reveals. -->
+  <rect width="32" height="32" rx="7" fill="#15110e"/>
+  <g fill="#c8372b">
+    <rect x="9" y="5" width="8" height="2"/>
+    <rect x="7" y="7" width="2" height="2"/><rect x="17" y="7" width="2" height="2"/>
+    <rect x="5" y="9" width="2" height="8"/><rect x="19" y="9" width="2" height="8"/>
+    <rect x="7" y="17" width="2" height="2"/><rect x="17" y="17" width="2" height="2"/>
+    <rect x="9" y="19" width="8" height="2"/>
+  </g>
+  <g fill="#e2b25a">
+    <rect x="19" y="20" width="3" height="3"/><rect x="22" y="23" width="3" height="3"/><rect x="25" y="26" width="3" height="3"/>
+  </g>
+</svg>
