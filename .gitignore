@@ -1,5 +1,5 @@
+.wrangler/
+node_modules/
 .DS_Store
 Thumbs.db
 desktop.ini
-.wrangler/
-node_modules/

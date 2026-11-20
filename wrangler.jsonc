@@ -1,23 +1,28 @@
-// Cloudflare Worker for the affiliate bonus pages: https://bonuspage.fastaifactory.com/<product>/
-// The repo root is the assets folder (one folder per product); .assetsignore keeps the repo files out.
 {
-  "name": "bonus-pages",
-  "main": "./worker.js",
-  "compatibility_date": "2026-10-01",
-  "workers_dev": false,
-  "preview_urls": false,
-  "assets": {
-    "directory": ".",
-    "binding": "ASSETS",
-    // /nazo-box → /nazo-box/ and /nazo-box/index.html → /nazo-box/
-    "html_handling": "auto-trailing-slash",
-    // unknown paths (and the bare domain) get 404.html with a real 404 status
-    "not_found_handling": "404-page",
-    // videos go through worker.js so Safari gets byte ranges (206)
-    "run_worker_first": ["/*.mp4", "/*.m4v", "/*.webm", "/*.mov"]
-  },
-  "routes": [
-    { "pattern": "bonuspage.fastaifactory.com", "custom_domain": true }
-  ],
-  "observability": { "enabled": true }
-}
+    // Affiliate bonus pages: https://bonuspage.fastaifactory.com/<product>/  (same setup as d:/Saas/sale-pages)
+    // Deploy by hand from this folder: npx wrangler deploy
+    "name": "bonus-pages",
+    "main": "./worker.js",
+    "compatibility_date": "2026-10-01",
+    "workers_dev": false,
+    "preview_urls": false,
+    "assets": {
+      "directory": "./public",
+      // worker.js reaches the files through env.ASSETS (video ranges)
+      "binding": "ASSETS",
+      // /nazo-box -> /nazo-box/ and /nazo-box/index.html -> /nazo-box/
+      "html_handling": "auto-trailing-slash",
+      // unknown paths and the bare domain get public/404.html with a 404 status
+      "not_found_handling": "404-page",
+      // Files are served before the worker runs; videos go through it so it can
+      // answer Range requests with 206 (Safari won't play a <video> without them).
+      "run_worker_first": ["/*.mp4", "/*.m4v", "/*.webm", "/*.mov"]
+    },
+    "routes": [
+      {
+        "pattern": "bonuspage.fastaifactory.com",
+        "custom_domain": true
+      }
+    ],
+    "observability": { "enabled": true }
+  }
