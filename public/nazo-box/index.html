@@ -49,7 +49,7 @@
         <a href="#funnel">Funnel & prices</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a class="btn" href="https://warriorplus.com/o2/a/p97zs7j/0" rel="sponsored noopener" data-buy>Get My Bonuses</a>
+      <a class="btn" href="https://warriorplus.com/o2/a/p97zs7j/0" target="_blank" rel="sponsored noopener" data-buy>Get My Bonuses</a>
     </div>
   </header>
 
@@ -67,7 +67,7 @@
             no extra cost during launch week.</p>
 
           <div class="cta-row">
-            <a class="btn btn--big" href="https://warriorplus.com/o2/a/p97zs7j/0" rel="sponsored noopener" data-buy>
+            <a class="btn btn--big" href="https://warriorplus.com/o2/a/p97zs7j/0" target="_blank" rel="sponsored noopener" data-buy>
               Get NAZO BOX + My Bonuses <span class="arrow" aria-hidden="true">→</span>
             </a>
             <div class="trust">
@@ -127,7 +127,7 @@
           </button>
         </div>
         <div class="cta-row">
-          <a class="btn btn--big" href="https://warriorplus.com/o2/a/p97zs7j/0" rel="sponsored noopener" data-buy>Get NAZO BOX + My Bonuses <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn--big" href="https://warriorplus.com/o2/a/p97zs7j/0" target="_blank" rel="sponsored noopener" data-buy>Get NAZO BOX + My Bonuses <span class="arrow" aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
@@ -368,7 +368,7 @@
         <div class="total-box reveal">
           <div class="big">Total bonus value <s>$428</s> → <b>$0</b> through my link</div>
           <div class="cta-row" style="margin-top:22px">
-            <a class="btn btn--big" href="https://warriorplus.com/o2/a/p97zs7j/0" rel="sponsored noopener" data-buy>Unlock My 4 Bonuses <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn--big" href="https://warriorplus.com/o2/a/p97zs7j/0" target="_blank" rel="sponsored noopener" data-buy>Unlock My 4 Bonuses <span class="arrow" aria-hidden="true">→</span></a>
             <p class="cta-note">Pack A comes with NAZO BOX itself. Pack B unlocks when you add any one upgrade.</p>
           </div>
         </div>
@@ -452,7 +452,7 @@
               <li data-b="b"><span class="dot">✓</span><span>Occupation Trivia Book Maker</span></li>
             </ul>
             <p class="calc-msg" id="calc-msg"></p>
-            <a class="btn btn--block" href="https://warriorplus.com/o2/a/p97zs7j/0" rel="sponsored noopener" data-buy>Start With NAZO BOX <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn--block" href="https://warriorplus.com/o2/a/p97zs7j/0" target="_blank" rel="sponsored noopener" data-buy>Start With NAZO BOX <span class="arrow" aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
@@ -477,7 +477,7 @@
             bonuses to your order.</span>
         </div>
         <div class="cta-row center">
-          <a class="btn btn--big" href="https://warriorplus.com/o2/a/p97zs7j/0" rel="sponsored noopener" data-buy>Get NAZO BOX + My Bonuses <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn--big" href="https://warriorplus.com/o2/a/p97zs7j/0" target="_blank" rel="sponsored noopener" data-buy>Get NAZO BOX + My Bonuses <span class="arrow" aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
@@ -549,7 +549,7 @@
           <div class="u"><b data-s>00</b><span>Sec</span></div>
         </div>
         <div class="cta-row">
-          <a class="btn btn--big" href="https://warriorplus.com/o2/a/p97zs7j/0" rel="sponsored noopener" data-buy>Get NAZO BOX + My 4 Bonuses <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn--big" href="https://warriorplus.com/o2/a/p97zs7j/0" target="_blank" rel="sponsored noopener" data-buy>Get NAZO BOX + My 4 Bonuses <span class="arrow" aria-hidden="true">→</span></a>
           <div class="trust">
             <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Secure WarriorPlus checkout</span>
             <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Instant access</span>
@@ -590,7 +590,7 @@
   <!-- Sticky buy bar on phones -->
   <div class="sticky-cta" id="sticky-cta">
     <div class="meta"><b>NAZO BOX + 4 bonuses</b><span data-sticky-timer>Launch week: Nov 23–26</span></div>
-    <a class="btn" href="https://warriorplus.com/o2/a/p97zs7j/0" rel="sponsored noopener" data-buy>Get It Now →</a>
+    <a class="btn" href="https://warriorplus.com/o2/a/p97zs7j/0" target="_blank" rel="sponsored noopener" data-buy>Get It Now →</a>
   </div>
 
   <script>
@@ -605,7 +605,12 @@
       };
 
       // Every buy button uses the one link above
-      document.querySelectorAll('[data-buy]').forEach(function (a) { a.href = CONFIG.affiliateLink; });
+      // and opens it in a new tab, so the bonus page stays open behind it
+      document.querySelectorAll('[data-buy]').forEach(function (a) {
+        a.href = CONFIG.affiliateLink;
+        a.target = '_blank';
+        a.rel = 'sponsored noopener';
+      });
 
       /* ---------- Bonus video: big play button over the poster ---------- */
       var bv = document.getElementById('bonus-video');
